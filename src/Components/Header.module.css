@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center ;
+    grid-area: h;
+    background-color: lightblue;
+}
+.img {
+
+}
+.h1 {
+    flex-grow: 1;
+    color:black;
+    text-align: center;
+    font-size: 100px;
+}

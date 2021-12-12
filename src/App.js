@@ -10,8 +10,8 @@ import Profile from "./Components/Profile";
 const App = () => {
     return (
         <div className='app-wrapper'>
-         <Header/>
-          <Navbar/>
+            <Header/>
+            <Navbar/>
             <Profile/>
         </div>
     );
