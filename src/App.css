@@ -10,20 +10,10 @@
     grid-gap: 10px;
 }
 
-.header {
-    grid-area: h;
-    background-color: lightblue;
-}
+
 
 .nav {
     grid-area: n;
     background-color: dimgray;
 }
 
-.content {
-    grid-area: c;
-    background-color: lightgray;
-}
-.content-img img{
-    width: 100%;
-}
