@@ -1,4 +1,4 @@
-import logoimg from "../assets/my images/logo.png";
+import logoimg from "../../assets/my images/logo.png";
 import React from "react";
 import style from './Header.module.css'
 

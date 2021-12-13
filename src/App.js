@@ -3,9 +3,9 @@ import './App.css';
 import logoimg from './assets/my images/logo.png'
 import contentimg from './assets/my images/content.jpg'
 import userimg from './assets/my images/user.jpg'
-import Header from './Components/Header'
-import Navbar from "./Components/Navbar";
-import Profile from "./Components/Profile";
+import Header from './Components/Header/Header'
+import Navbar from "./Components/Navbar/Navbar";
+import Profile from "./Components/Profile/Profile";
 
 const App = () => {
     return (

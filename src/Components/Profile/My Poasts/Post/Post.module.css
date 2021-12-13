@@ -1,0 +1,8 @@
+.item {
+    color: dimgrey;
+}
+
+.item img.like {
+    width: 30px;
+    border-radius: 50px;
+}
