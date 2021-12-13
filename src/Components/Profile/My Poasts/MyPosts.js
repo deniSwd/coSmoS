@@ -14,10 +14,10 @@ const MyPosts = () => {
             </div>
             <div>
                 New Posts
-                <Post/>
-                <Post/>
-                <Post/>
-                <Post/>
+                <Post message='What is you name?'/>
+                <Post message='How are you?'/>
+                <Post message='Do you like cofee?'/>
+                <Post message='This my firsts props?'/>
             </div>
 
         </div>
