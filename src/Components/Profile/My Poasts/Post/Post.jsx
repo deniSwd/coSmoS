@@ -12,6 +12,7 @@ const Post = (props) => {
             </div>
             <div>
             <img src={likeimg} className={style.like}/>
+                {props.likeAmount}
             </div>
         </div>
     )
