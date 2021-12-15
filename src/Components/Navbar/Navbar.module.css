@@ -2,6 +2,12 @@ nav {
     grid-area: n;
     background-color: dimgray;
 }
-.item {
+.item  {
     color: white;
+    text-decoration: none;
+    margin: 20px;
+}
+.item a.active {
+    color: black;
+    text-decoration: none;
 }

@@ -16,7 +16,7 @@ const MyPosts = () => {
                 New Posts
                 <Post message='What is you name?' likeAmount='10'/>
                 <Post message='How are you?' likeAmount='15'/>
-                <Post message='Do you like cofee?' likeAmount='1'/>
+                {/*<Post message='Do you like cofee?' likeAmount='1'/>*/}
                 <Post message='This my firsts props?' likeAmount='100'/>
             </div>
 
