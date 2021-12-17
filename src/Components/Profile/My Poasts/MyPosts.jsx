@@ -5,19 +5,23 @@ import Post from "./Post/Post";
 const MyPosts = () => {
     return (
         <div>
-            <div>
+            <div className={style.postBlock}>
                 <div>
-                My Posts
+                    <h2>My Posts</h2>
                 </div>
-                <textarea></textarea>
-                <button>Add Post</button>
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Add Post</button>
+                </div>
             </div>
-            <div>
+            <div className={style.content}>
                 New Posts
                 <Post message='What is you name?' likeAmount='10'/>
                 <Post message='How are you?' likeAmount='15'/>
                 {/*<Post message='Do you like cofee?' likeAmount='1'/>*/}
-                <Post message='This my firsts props?' likeAmount='100'/>
+               {/* <Post message='This my firsts props?' likeAmount='100'/>*/}
             </div>
 
         </div>
