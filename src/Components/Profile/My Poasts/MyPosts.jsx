@@ -2,7 +2,16 @@ import React from "react";
 import style from './MyPosts.module.css'
 import Post from "./Post/Post";
 
+let posts = [
+    {id: 1, message: 'What is you name?', likeAmount: '10'},
+    {id: 2, message: 'How are you?', likeAmount: '15'}
+]
+let postsElements = posts.map (
+    p =>  <Post message={p.message} likeAmount={p.likeAmount}/>
+)
+
 const MyPosts = () => {
+    ''
     return (
         <div>
             <div className={style.postBlock}>
@@ -18,12 +27,8 @@ const MyPosts = () => {
             </div>
             <div className={style.content}>
                 New Posts
-                <Post message='What is you name?' likeAmount='10'/>
-                <Post message='How are you?' likeAmount='15'/>
-                {/*<Post message='Do you like cofee?' likeAmount='1'/>*/}
-               {/* <Post message='This my firsts props?' likeAmount='100'/>*/}
+                {postsElements}
             </div>
-
         </div>
     )
 }
