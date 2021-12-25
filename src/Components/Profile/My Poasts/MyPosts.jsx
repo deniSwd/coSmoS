@@ -1,19 +1,17 @@
 import React from "react";
 import style from './MyPosts.module.css'
 import Post from "./Post/Post";
-/*
-let posts = [
-    {id: 1, message: 'What is you name?', likeAmount: '10'},
-    {id: 2, message: 'How are you?', likeAmount: '15'}
-]*/
-/*let postsElements = props.postsFromIndex.map (
-    p =>  <Post message={p.message} likeAmount={p.likeAmount}/>
-)*/
+
 
 const MyPosts = (props) => {
-    let postsElements = props.postsFromIndex.map (
+    let postsElements = props.posts.map (
         p =>  <Post message={p.message} likeAmount={p.likeAmount}/>
     )
+    let newPostElement= React.createRef();
+    let addPost= () => {
+        let text= newPostElement.current.value;
+        alert (text);
+    }
     return (
         <div>
             <div className={style.postBlock}>
@@ -21,10 +19,10 @@ const MyPosts = (props) => {
                     <h2>My Posts</h2>
                 </div>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newPostElement}></textarea>
                 </div>
                 <div>
-                    <button>Add Post</button>
+                    <button onClick={addPost}>Add Post</button>
                 </div>
             </div>
             <div className={style.content}>
