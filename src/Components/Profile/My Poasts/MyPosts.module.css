@@ -5,3 +5,6 @@
 .postBlock {
     padding:10px;
 }
+textarea {
+    text-decoration: none;
+}
