@@ -8,15 +8,16 @@ import App from './App';
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={store.getState()}
-                 updateNewPostText={store.updateNewPostText.bind(store)}
-                 updateNewMessageText ={store.updateNewMessageText.bind(store)}
-                 addPost={store.addPost.bind(store)}
-                 addMessage={store.addMessage.bind(store)}
-            />
-        </React.StrictMode>,
-        document.getElementById('root')
-    );
+            <App state={store.getState()} dispatch={store.dispatch.bind(store)}
+          /*  /!* updateNewPostText={store.updateNewPostText.bind(store)}
+             updateNewMessageText ={store.updateNewMessageText.bind(store)}
+             addPost={store.addPost.bind(store)}
+             addMessage={store.addMessage.bind(store)*!/}*/
+        />
+</React.StrictMode>,
+    document.getElementById('root')
+)
+    ;
 }
 
 
