@@ -8,7 +8,7 @@ const MyPosts = (props) => {
     let postsElements = props.posts.map(
         p => <Post message={p.message} likeAmount={p.likeAmount}/>
     )
-    /*let newPostElement = React.createRef();*/
+
     let addPost = () => {
         props.dispatch(addPostActionCreator());
 
@@ -25,7 +25,6 @@ const MyPosts = (props) => {
                 </div>
                 <div>
                     <textarea onChange={onPostChange}
-                             /* ref={newPostElement}*/
                               value={props.newPostText}
                     />
                 </div>
