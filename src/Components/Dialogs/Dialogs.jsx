@@ -4,7 +4,6 @@ import DialogsItem from "./DialogsItem/DialogsItem";
 import Message from "./Message/Message";
 
 
-
 const Dialogs = (props) => {
     let state = props.messagesPage
 
@@ -36,7 +35,6 @@ const Dialogs = (props) => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }
