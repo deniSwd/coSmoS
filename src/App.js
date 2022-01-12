@@ -13,7 +13,6 @@ import Settings from "./Components/Settings/Settings";
 
 const App = (props) => {
     return (
-
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
