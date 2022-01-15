@@ -5,9 +5,10 @@ import Navbar from "./Components/Navbar/Navbar";
 import Profile from "./Components/Profile/Profile";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import { Route, Routes} from "react-router-dom";
-import News from "./Components/News/News";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
+import UsersContainer from "./Components/Users/UsersContainer";
+
 
 
 
@@ -20,7 +21,7 @@ const App = (props) => {
                     <Routes>
                         <Route path='/profile' element={<Profile store={props.store}/>}/>
                         <Route path='/dialogs' element={<DialogsContainer store={props.store}/>}/>
-                        <Route path='/news' element={<News/>}/>
+                        <Route path='/users' element={<UsersContainer store={props.store}/>}/>
                         <Route path='/music' element={<Music/>}/>
                         <Route path='/settings' element={<Settings/>}/>
                     </Routes>

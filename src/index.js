@@ -11,6 +11,7 @@ import Provider from "react-redux/lib/components/Provider";
     ReactDOM.render(
         <BrowserRouter>
             <Provider store={store}>
+
                 <App  dispatch={store.dispatch.bind(store)} store={store}/>
             </Provider>
         </BrowserRouter>, document.getElementById('root'));
