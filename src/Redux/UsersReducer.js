@@ -6,7 +6,7 @@ const SET_USERS = 'SET-USERS';
 
 let initialsState = {
     users: [
-        {
+/*        {
             id: 1,
             photoUser: userImg,
             followed: true,
@@ -29,7 +29,7 @@ let initialsState = {
             fullName: 'Denis K.',
             status: 'I am a junior...',
             location: {city: 'Belgorod', country: 'Russia'}
-        }
+        }*/
     ]
 };
 
