@@ -5,32 +5,10 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 
 let initialsState = {
-    users: [
-/*        {
-            id: 1,
-            photoUser: userImg,
-            followed: true,
-            fullName: 'Denis K.',
-            status: 'I am a junior...',
-            location: {city: 'Belgorod', country: 'Russia'}
-        },
-        {
-            id: 2,
-            photoUser: userImg,
-            followed: false,
-            fullName: 'Denis K.',
-            status: 'I am a junior...',
-            location: {city: 'Belgorod', country: 'Russia'}
-        },
-        {
-            id: 3,
-            photoUser: userImg,
-            followed: true,
-            fullName: 'Denis K.',
-            status: 'I am a junior...',
-            location: {city: 'Belgorod', country: 'Russia'}
-        }*/
-    ]
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 5,
+    currentPage: 1
 };
 
 
