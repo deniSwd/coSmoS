@@ -3,3 +3,11 @@
     grid-template-columns: 2fr 10fr;
 
 }
+.selectedPage {
+    font-weight: bolder;
+    padding: 10px;
+}
+.content {
+    overflow-x: scroll;
+    width: 1000px;
+}
