@@ -1,12 +1,22 @@
 import React from "react";
 import {connect} from "react-redux";
 import Users from "./Users";
-import {followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unfollowAC} from "../../Redux/UsersReducer";
+import {
+    followAC,
+    setCurrentPageAC,
+    setTotalUsersCountAC,
+    setUsersAC,
+    toggleIsProgressAC,
+    unfollowAC
+} from "../../Redux/UsersReducer";
 import axios from "axios";
+import Preloader from "../Common/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
+        this.props.toggleIsProgress(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+            this.props.toggleIsProgress(false)
             this.props.setUsers(response.data.items)
             this.props.setTotalUsersCount(response.data.totalCount)
         })
@@ -14,13 +24,16 @@ class UsersContainer extends React.Component {
 
     onPostChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
+        this.props.toggleIsProgress(true)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
+            this.props.toggleIsProgress(false)
             this.props.setUsers(response.data.items)
         })
     }
 
     render() {
-        return (
+        return ( <>
+                { this.props.isProgress ? <Preloader /> : null }
             <Users totalUsersCount={this.props.totalUsersCount}
                    pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage}
@@ -29,6 +42,7 @@ class UsersContainer extends React.Component {
                    unfollow={this.props.unfollow}
                    follow={this.props.follow}
             />
+            </>
         )
     }
 }
@@ -38,7 +52,8 @@ let mapStateToProps = (state) => {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage
+        currentPage: state.usersPage.currentPage,
+        isProgress: state.usersPage.isProgress
     }
 }
 
@@ -58,6 +73,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setTotalUsersCount: (totalCount) => {
             dispatch(setTotalUsersCountAC(totalCount))
+        },
+        toggleIsProgress: (isProgress) => {
+            dispatch(toggleIsProgressAC(isProgress))
         }
     }
 }
