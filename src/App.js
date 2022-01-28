@@ -3,11 +3,11 @@ import './App.css';
 import Header from './Components/Header/Header'
 import Navbar from "./Components/Navbar/Navbar";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
-import { Route, Routes} from "react-router-dom";
 import Music from "./Components/Music/Music";
 import Settings from "./Components/Settings/Settings";
 import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileInfo/ProfileContainer";
+import {Route} from "react-router-dom"
 
 
 
@@ -18,13 +18,11 @@ const App = (props) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                    <Routes>
-                        <Route path='/profile/*' element={<ProfileContainer />}/>
-                        <Route path='/dialogs' element={<DialogsContainer />}/>
-                        <Route path='/users' element={<UsersContainer />}/>
-                        <Route path='/music' element={<Music/>}/>
-                        <Route path='/settings' element={<Settings/>}/>
-                    </Routes>
+                        <Route path='/profile/:userId?' render={ () => <ProfileContainer />}/>
+                        <Route path='/dialogs' render={ () => <DialogsContainer />}/>
+                        <Route path='/users' render={ () => <UsersContainer />}/>
+                        <Route path='/music' render={ () => <Music/>}/>
+                        <Route path='/settings' render={ () => <Settings/>}/>
                 </div>
             </div>
 
