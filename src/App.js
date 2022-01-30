@@ -8,6 +8,7 @@ import Settings from "./Components/Settings/Settings";
 import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileInfo/ProfileContainer";
 import {Route} from "react-router-dom"
+import HeaderContainer from "./Components/Header/HeaderContainer";
 
 
 
@@ -15,7 +16,7 @@ import {Route} from "react-router-dom"
 const App = (props) => {
     return (
             <div className='app-wrapper'>
-                <Header/>
+                <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
                         <Route path='/profile/:userId?' render={ () => <ProfileContainer />}/>
