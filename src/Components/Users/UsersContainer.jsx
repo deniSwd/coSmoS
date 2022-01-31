@@ -11,28 +11,25 @@ import {
 } from "../../Redux/UsersReducer";
 import axios from "axios";
 import Preloader from "../Common/Preloader/Preloader";
+import {userAPI} from "../../API/api";
+
 
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsProgress(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-            {
-                withCredentials: true,
-            }).then(response => {
+        userAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.toggleIsProgress(false)
-            this.props.setUsers(response.data.items)
-            this.props.setTotalUsersCount(response.data.totalCount)
+            this.props.setUsers(data.items)
+            this.props.setTotalUsersCount(data.totalCount)
         })
     }
 
     onPostChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber)
         this.props.toggleIsProgress(true)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
-            withCredentials: true,
-        }).then(response => {
+        userAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
             this.props.toggleIsProgress(false)
-            this.props.setUsers(response.data.items)
+            this.props.setUsers(data.items)
         })
     }
 

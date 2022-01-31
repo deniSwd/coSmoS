@@ -1,6 +1,5 @@
 import style from "./ProfileInfo.module.css";
 import contentimg from "../../../assets/my images/content.jpg";
-import userimg from "../../../assets/my images/user.jpg";
 import Preloader from "../../Common/Preloader/Preloader";
 import React from "react";
 
