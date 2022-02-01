@@ -13,3 +13,8 @@ export const userAPI = {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)
     }
 }
+export const myAuthAPI = {
+    getMyAuth ()  {
+        return instance.get(`auth/me`).then(response => response.data)
+    }
+}
