@@ -28,7 +28,8 @@ let Users = (props) => {
                             <img src={u.photos.small != null ? u.photos.small : usersPhoto}/>
                         </NavLink>
                         <div>
-                            {u.followed ? <button onClick={() => {
+                            {u.followed ? <button disabled={props.followingInProgress} onClick={() => {
+                                props.toggleFollowingProgress(true)
                                     axios.delete(`https://social-network.samuraijs.com/api/1.0/delete/${u.id}`, {
                                         withCredentials: true,
                                         headers: {
@@ -38,9 +39,11 @@ let Users = (props) => {
                                         if (response.data.resultCode == 0) {
                                             props.unfollow(u.id)
                                         }
+                                        props.toggleFollowingProgress(false)
                                     })
                                 }}>UnFollow</button>
-                                : <button onClick={() => {
+                                : <button disabled={props.followingInProgress} onClick={() => {
+                                    props.toggleFollowingProgress(true)
                                     axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
                                         withCredentials: true,
                                         headers: {
@@ -50,7 +53,7 @@ let Users = (props) => {
                                         if (response.data.resultCode == 0) {
                                             props.follow(u.id)
                                         }
-
+                                        props.toggleFollowingProgress(false)
                                     })
                                 }}>Follow</button>}
                         </div>
