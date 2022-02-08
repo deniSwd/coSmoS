@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import Profile from "../Profile";
 import {getUserProfile} from "../../../Redux/profileReducer";
-import {withRouter} from "react-router-dom"
+import {Redirect, withRouter} from "react-router-dom"
 
 
 
@@ -16,6 +16,7 @@ this.props.getUserProfile(userId)
     }
 
     render() {
+        if(!this.props.isAuth) return <Redirect to='/login' />
         return (
             <Profile {...this.props}/>
         )
@@ -24,7 +25,8 @@ this.props.getUserProfile(userId)
 
 let mapStateToProps = (state) => {
     return {
-        profile: state.profilePage.profile
+        profile: state.profilePage.profile,
+        isAuth: state.auth.isAuth
     }
 }
 
