@@ -6,7 +6,7 @@ import MyPostsContainer from "./My Poasts/MyPostsContainer";
 const Profile = (props) => {
     return (
         <div>
-            <ProfileInfo profile={props.profile}/>
+            <ProfileInfo profile={props.profile} status={props.status}/>
             <MyPostsContainer store={props.store}/>
         </div>
     )

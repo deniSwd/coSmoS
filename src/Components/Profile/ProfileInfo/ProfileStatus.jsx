@@ -5,7 +5,7 @@ import {Component} from "react";
 class ProfileStatus extends Component {
     state ={
         editMode: false,
-        status: "Мозги - кисель"
+       /* status: "Мозги - кисель"*/
     }
     activateEditMode = () => {
         this.setState({
@@ -22,7 +22,7 @@ class ProfileStatus extends Component {
             <div>
                 {!this.state.editMode ?
                     <div>
-                        <span onDoubleClick={this.activateEditMode}>{this.state.status}</span>
+                        <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
                     </div>
                     :
                     <div>
