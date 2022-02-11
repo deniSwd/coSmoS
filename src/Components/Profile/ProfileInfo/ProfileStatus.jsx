@@ -5,7 +5,7 @@ import {Component} from "react";
 class ProfileStatus extends Component {
     state ={
         editMode: false,
-       /* status: "Мозги - кисель"*/
+        status: this.props.status
     }
     activateEditMode = () => {
         this.setState({
@@ -16,17 +16,24 @@ class ProfileStatus extends Component {
         this.setState({
             editMode: false
         })
+        this.props.updateUserStatus(this.state.status)
     }
+    onStatusChange = (event) => {
+        this.setState({
+            status: event.currentTarget.value
+        })
+    }
+
     render() {
         return (
             <div>
                 {!this.state.editMode ?
                     <div>
-                        <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+                        <span onDoubleClick={this.activateEditMode}>{this.props.status || "Add Status"}</span>
                     </div>
                     :
                     <div>
-                        <input autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status}/>
+                        <input onChange= {this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status}/>
                     </div>
                 }
             </div>
