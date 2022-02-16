@@ -5,9 +5,7 @@ import {getMyAuth, logout} from "../../Redux/authReducer";
 
 
 class HeaderContainer extends React.Component {
-    componentDidMount() {
-      this.props.getMyAuth()
-    }
+
 
     render() {
         return (

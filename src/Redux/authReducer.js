@@ -4,10 +4,10 @@ import {stopSubmit} from "redux-form";
 const SET_USER_AUTH_DATA = 'SET-USER-AUTH-DATA'
 
 let initialsState = {
-   userId: null,
+    userId: null,
     login: null,
     email: null,
-    isAuth:false
+    isAuth: false
 };
 
 
@@ -17,7 +17,7 @@ const authReducer = (state = initialsState, action) => {
         case SET_USER_AUTH_DATA:
             return {
                 ...state,
-              ...action.data
+                ...action.data
             }
         default:
             return (state);
@@ -25,27 +25,29 @@ const authReducer = (state = initialsState, action) => {
 
 }
 
-export const setUserAuthData = (userId,login,email,isAuth) => ({type: SET_USER_AUTH_DATA, data:{userId,login,email,isAuth}});
+export const setUserAuthData = (userId, login, email, isAuth) => ({
+    type: SET_USER_AUTH_DATA,
+    data: {userId, login, email, isAuth}
+});
 
-export const getMyAuth = () => {
-    return (dispatch) => {
-        myAuthAPI.getMe().then(data => {
-            if (data.resultCode === 0) {
-                let {id,login,email} = data.data
-                dispatch(setUserAuthData(id,login,email,true))
-            }
-        })
-    }
+export const getMyAuth = () => (dispatch) => {
+    return myAuthAPI.getMe().then(data => {
+        if (data.resultCode === 0) {
+            let {id, login, email} = data.data
+            dispatch(setUserAuthData(id, login, email, true))
+        }
+    })
 }
 
-export const login = (email,password,rememberMe) => {
+
+export const login = (email, password, rememberMe) => {
     return (dispatch) => {
-        myAuthAPI.login(email,password,rememberMe).then(data => {
+        myAuthAPI.login(email, password, rememberMe).then(data => {
             if (data.resultCode === 0) {
                 dispatch(getMyAuth())
             } else {
                 let message = data.messages.length > 0 ? data.messages[0] : "some error"
-                dispatch(stopSubmit('login',{_error: message}))
+                dispatch(stopSubmit('login', {_error: message}))
             }
         })
     }

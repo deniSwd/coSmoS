@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header/Header'
 import Navbar from "./Components/Navbar/Navbar";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import Music from "./Components/Music/Music";
@@ -10,27 +9,42 @@ import ProfileContainer from "./Components/Profile/ProfileInfo/ProfileContainer"
 import {Route} from "react-router-dom"
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import Login from "./Components/Login/login";
+import {connect} from "react-redux";
+import {initializedApp} from "./Redux/appReducer";
+import Preloader from "./Components/Common/Preloader/Preloader";
 
 
+class App extends React.Component {
+    componentDidMount() {
+        this.props.initializedApp()
+    }
+    render() {
+        if (!this.props.initialize) {
+            return <Preloader />
+        }
 
-
-const App = (props) => {
-    return (
+        return (
             <div className='app-wrapper'>
                 <HeaderContainer/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-                        <Route path='/profile/:userId?' render={ () => <ProfileContainer />}/>
-                        <Route path='/dialogs' render={ () => <DialogsContainer />}/>
-                        <Route path='/users' render={ () => <UsersContainer />}/>
-                        <Route path='/music' render={ () => <Music/>}/>
-                        <Route path='/settings' render={ () => <Settings/>}/>
-                       <Route path='/login' render={ () => <Login/>}/>
+                    <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
+                    <Route path='/dialogs' render={() => <DialogsContainer/>}/>
+                    <Route path='/users' render={() => <UsersContainer/>}/>
+                    <Route path='/music' render={() => <Music/>}/>
+                    <Route path='/settings' render={() => <Settings/>}/>
+                    <Route path='/login' render={() => <Login/>}/>
                 </div>
             </div>
 
-    );
+        );
+    }
 }
 
+let mapStateToProps = (state) => {
+    return {
+        initialize: state.app.initialize
+    }
+}
 
-export default App;
+export default connect (mapStateToProps,{initializedApp})(App);
