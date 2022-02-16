@@ -1,4 +1,5 @@
 import axios from "axios";
+import {requestUsers} from "../Redux/UsersReducer";
 
 const instance = axios.create({
     baseURL: `https://social-network.samuraijs.com/api/1.0/`,
@@ -9,7 +10,7 @@ const instance = axios.create({
 })
 
 export const userAPI = {
-    getUsers (currentPage,pageSize)  {
+    requestUsers (currentPage,pageSize)  {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`).then(response => response.data)
     },
     unfollow (userId) {
