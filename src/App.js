@@ -18,9 +18,10 @@ class App extends React.Component {
     componentDidMount() {
         this.props.initializedApp()
     }
+
     render() {
         if (!this.props.initialize) {
-            return <Preloader />
+            return <Preloader/>
         }
 
         return (
@@ -47,4 +48,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect (mapStateToProps,{initializedApp})(App);
+export default connect(mapStateToProps, {initializedApp})(App);
