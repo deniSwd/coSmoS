@@ -3,8 +3,13 @@
     font-weight: bolder;
     padding: 10px;
 }
+.noSelectedPage{
+    margin: 5px;
+}
 
 .content {
-    overflow-x: scroll;
-    width: 1000px;
+    margin: 20px 0 20px 0;
+}
+.content button {
+    margin: 0 10px 0 10px;
 }

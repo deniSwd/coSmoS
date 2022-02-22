@@ -3,4 +3,6 @@
     grid-template-columns: 2fr 10fr;
 
 }
-
+.usersBlock {
+    margin: 30px;
+}
