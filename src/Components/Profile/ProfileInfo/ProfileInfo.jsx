@@ -9,14 +9,22 @@ const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader />
     }
+
     return (
         <div>
             <div className={style.contentImg}>
                 <img src={contentimg}/>
             </div>
             <div className={style.content}>
-                <img src={props.profile.photos.small || userPhoto}/>
-                <ProfileStatus status= {props.status} updateUserStatus ={props.updateUserStatus}/>
+                <div>
+                    <img src={props.profile.photos.small || userPhoto}/>
+                </div>
+                <div>
+                    <ProfileStatus status= {props.status} updateUserStatus ={props.updateUserStatus}/>
+                </div>
+                <div>
+                    {props.isOwner && <input type={'file'}/>}
+                </div>
             </div>
         </div>
     );
