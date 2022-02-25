@@ -7,7 +7,12 @@ import userPhoto from "../../../assets/my images/userPhoto.jpg";
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
-        return <Preloader />
+        return <Preloader/>
+    }
+    const onMainPhotoSelected = (event) => {
+        if (event.target.files.length) {
+            props.savePhoto(event.target.files[0])
+        }
     }
 
     return (
@@ -20,10 +25,10 @@ const ProfileInfo = (props) => {
                     <img src={props.profile.photos.small || userPhoto}/>
                 </div>
                 <div>
-                    <ProfileStatus status= {props.status} updateUserStatus ={props.updateUserStatus}/>
+                    <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
                 </div>
                 <div>
-                    {props.isOwner && <input type={'file'}/>}
+                    {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
                 </div>
             </div>
         </div>
