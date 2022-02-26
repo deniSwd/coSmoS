@@ -50,6 +50,7 @@ export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
 export const savePhotoSuccess = (photos) => ({type: SET_USER_PHOTO, photos});
 
 
+
 export const getUserProfile = (userId) => async (dispatch) => {
     let response = await profileAPI.getProfile(userId)
     dispatch(setUserProfile(response.data))
@@ -67,10 +68,15 @@ export const updateUserStatus = (status) => async (dispatch) => {
 }
 
 export const savePhoto = (file) => async (dispatch) => {
-    debugger
     let response = await profileAPI.savePhoto(file)
     if (response.data.resultCode === 0) {
         dispatch(savePhotoSuccess(response.data.data.photos))
+    }
+}
+export const saveProfile = (profile) => async (dispatch) => {
+    let response = await profileAPI.saveProfile(profile)
+    if (response.data.resultCode === 0) {
+        // dispatch(setUserProfile(response.data.data.profile))
     }
 }
 export default profileReducer;
