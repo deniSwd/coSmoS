@@ -3,6 +3,7 @@ import {reduxForm} from "redux-form";
 import {fieldCreator} from "../../Common/Textarea,input/fieldCreator";
 import {Input} from "../../Common/Textarea,input/input";
 import {required} from "../../Common/Validation/validations";
+import style from "../../Login/login.Module.css";
 
 
 const ProfileDataForm = (props) => {
@@ -23,11 +24,14 @@ const ProfileDataForm = (props) => {
                 <b>aboutMe: </b> {fieldCreator('textarea', [],
                 'aboutMe', 'About me')}
             </div>
-          {/*  <div>
-                <b>Contacts: </b>{Object.keys(props.profile.contacts).map(key => {
-                return <Contacts key = {key} contactTitle={key} contactValue ={props.profile.contacts[key]}/>
+            <div>
+                <b>Contacts: </b>{Object.keys(props.profile.contacts).map((key) => {
+                return <div key = {key}>
+                <b> {key}: </b>{fieldCreator(Input, [], 'contacts.'+ key, key)}
+                </div>
             })}
-            </div*/}>
+            </div>
+            {props.error && <div className={style.generalError}>{props.error}</div>}
             <button>SAVE</button>
         </form>
     )

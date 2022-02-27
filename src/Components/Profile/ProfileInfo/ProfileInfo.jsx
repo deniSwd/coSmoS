@@ -23,7 +23,10 @@ const ProfileInfo = (props) => {
         setState(true)
     }
     const onSubmit = (formData) => {
-        props.saveProfile(formData)
+        props.saveProfile(formData).then(()=>{
+            setState(false)
+        })
+
     }
 
     return (
@@ -42,7 +45,7 @@ const ProfileInfo = (props) => {
                     <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
                 </div>
                 <div>
-                    {editMode ? <ProfileDataForm profile ={props.profile} onSubmit={onSubmit} /> :
+                    {editMode ? <ProfileDataForm initialValues = {props.profile} profile ={props.profile} onSubmit={onSubmit} /> :
                         <ProfileData profile ={props.profile} isOwner = {props.isOwner} activateEdit = {activateEdit}/>}
                 </div>
             </div>
