@@ -4,11 +4,11 @@ import {getMyAuth} from "./authReducer";
 const SET_INITIAL_APP = 'SET-INITIAL-APP'
 
 let initialsState = {
-    initialize: false
+    initialize: false as boolean
 }
+export type AppInitialStateType = typeof initialsState
 
-
-const appReducer = (state = initialsState, action) => {
+const appReducer = (state: AppInitialStateType = initialsState, action): AppInitialStateType => {
 
     switch (action.type) {
         case SET_INITIAL_APP:
@@ -21,6 +21,7 @@ const appReducer = (state = initialsState, action) => {
     }
 
 }
+
 
 export const setInitialApp = () => ({type: SET_INITIAL_APP});
 

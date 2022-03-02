@@ -11,7 +11,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPostChanged, fract
 
     let fractionCount = Math.ceil(pageCount / fractionSize)
     let [fractionNumber, setFractionNumber] = useState(1)
-    let leftElementFraction = ((fractionNumber - 1) * fractionSize)+1
+    let leftElementFraction = ((fractionNumber - 1) * fractionSize) + 1
     let rightElementFraction = fractionNumber * fractionSize
 
     return (
@@ -24,7 +24,7 @@ const Paginator = ({totalItemsCount, pageSize, currentPage, onPostChanged, fract
             {page
                 .filter(p => p >= leftElementFraction && p <= rightElementFraction)
                 .map(p => {
-                    return <span className={currentPage === p ? style.selectedPage : style.noSelectedPage }
+                    return <span className={currentPage === p ? style.selectedPage : style.noSelectedPage}
                                  onClick={(event) => {
                                      onPostChanged(p)
                                  }}>{p}</span>

@@ -5,15 +5,15 @@ const SET_USER_AUTH_DATA = 'SET-USER-AUTH-DATA'
 const SET_CAPTHA_URL_SUCCESS = 'SET-CAPTHA-URL-SUCCESS'
 
 let initialsState = {
-    userId: null,
-    login: null,
-    email: null,
-    isAuth: false,
-    captcha: null
-};
+    userId: null as number | null,
+    login: null as string | null,
+    email: null as string | null,
+    isAuth: false as boolean,
+    captcha: null as string |null
+}
+export type AuthInitialStateType = typeof initialsState
 
-
-const authReducer = (state = initialsState, action) => {
+const authReducer = (state: AuthInitialStateType = initialsState, action):AuthInitialStateType => {
 
     switch (action.type) {
         case SET_USER_AUTH_DATA:
