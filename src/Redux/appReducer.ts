@@ -8,7 +8,7 @@ let initialsState = {
 }
 export type AppInitialStateType = typeof initialsState
 
-const appReducer = (state: AppInitialStateType = initialsState, action): AppInitialStateType => {
+const appReducer = (state: AppInitialStateType = initialsState, action:any): AppInitialStateType => {
 
     switch (action.type) {
         case SET_INITIAL_APP:
@@ -22,11 +22,13 @@ const appReducer = (state: AppInitialStateType = initialsState, action): AppInit
 
 }
 
-
-export const setInitialApp = () => ({type: SET_INITIAL_APP});
+type SetInitialAppActionType = {
+    type: typeof SET_INITIAL_APP
+}
+export const setInitialApp = ():SetInitialAppActionType => ({type: SET_INITIAL_APP});
 
 export const initializedApp = () => {
-    return async (dispatch) => {
+    return async (dispatch:any) => {
         await dispatch(getMyAuth())
         dispatch(setInitialApp())
     }
