@@ -1,39 +1,13 @@
 import {profileAPI} from "../API/api";
 import {stopSubmit} from "redux-form";
+import {PhotosType, PostsType, ProfileType} from "../generalTypes";
 
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
 const SET_USER_STATUS = 'SET-USER-STATUS'
 const SET_USER_PHOTO = 'SET-USER-PHOTO'
 
-type PostsType = {
-    id: number
-    message: string
-    likeAmount: number
-}
-type ProfileType = {
-    userId: number
-    lookingForAJob: boolean
-    lookingForAJobDescription: string
-    fullName: string
-    contacts: ContactsType
-    photos:  PhotosType,
-    aboutMe: string
-}
-type ContactsType = {
-    github: string
-    vk: string
-    facebook: string
-    instagram: string
-    twitter: string
-    website: string
-    youtube: string
-    mainLink: string
-}
-type PhotosType = {
-    small: string | null
-    large: string | null
-}
+
 let initialsState = {
     posts: [
         {id: 1, message: 'What is you name?', likeAmount: 10},
@@ -69,7 +43,7 @@ const profileReducer = (state: ProfileInitialsStateType = initialsState, action:
         case SET_USER_PHOTO:
             return {
                 ...state,
-                profile: {...state.profile, photos: action.photos}
+                profile: {...state.profile, photos: action.photos} as ProfileType
             }
         default:
             return (state);
@@ -103,8 +77,7 @@ export const savePhotoSuccess = (photos: PhotosType): savePhotoSuccessType => ({
 export const getUserProfile = (userId: number) => async (dispatch: any) => {
     let response = await profileAPI.getProfile(userId)
     dispatch(setUserProfile(response.data))
-
-}: any
+}
 export const getUserStatus = (userId: number) => async (dispatch: any) => {
     let response = await profileAPI.getStatus(userId)
     dispatch(setUserStatus(response.data))
