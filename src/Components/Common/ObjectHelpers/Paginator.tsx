@@ -1,16 +1,22 @@
 import React, {useState} from 'react';
 import style from "./Paginator.module.css";
 
-
-const Paginator = ({totalItemsCount, pageSize, currentPage, onPostChanged, fractionSize = 10}) => {
+type PaginatorPropsType = {
+    totalItemsCount: number
+    pageSize: number
+    currentPage: number
+    onPostChanged: (pageNumber: number) => void
+    fractionSize: number
+}
+const Paginator: React.FC<PaginatorPropsType> = ({totalItemsCount, pageSize, currentPage, onPostChanged, fractionSize = 10}) => {
     let pageCount = Math.ceil(totalItemsCount / pageSize)
-    let page = []
+    let page: Array<number> = []
     for (let i = 1; i <= pageCount; i++) {
         page.push(i)
     }
 
     let fractionCount = Math.ceil(pageCount / fractionSize)
-    let [fractionNumber, setFractionNumber] = useState(1)
+    let [fractionNumber, setFractionNumber] = useState<number>(1)
     let leftElementFraction = ((fractionNumber - 1) * fractionSize) + 1
     let rightElementFraction = fractionNumber * fractionSize
 

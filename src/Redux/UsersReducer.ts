@@ -1,6 +1,6 @@
 import {userAPI} from "../API/api";
 import {updateObjectInArray} from "../Components/Common/ObjectHelpers/updateObjectInArray";
-import {PhotosType} from "../generalTypes";
+import {PhotosType, UserType} from "../generalTypes";
 
 
 const FOLLOW = 'FOLLOW';
@@ -11,13 +11,7 @@ const TOTAL_USERS_COUNT = 'TOTAL-USERS-COUNT';
 const TOGGLE_IS_PROGRESS = 'TOGGLE-IS-PROGRESS';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE-IS-FOLLOWING-PROGRESS';
 
-type UserType = {
-    name: string
-    id: number
-    photos: PhotosType
-    status: string
-    followed: boolean
-}
+
 
 let initialsState = {
     users: [] as Array<UserType>,

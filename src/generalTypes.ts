@@ -26,3 +26,12 @@ export type PhotosType = {
     small: string | null
     large: string | null
 }
+export type UserType = {
+    name: string
+    id: number
+    photos: PhotosType
+    status: string
+    followed: boolean
+}
+
+export type UserTypeKeys = keyof UserType
